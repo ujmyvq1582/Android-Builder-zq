@@ -1,12 +1,13 @@
 [
   {
     "kernelSource": {
-      "name": "Xiaomi4",
-      "repo": "https://github.com/SonicBSV/android_kernel_xiaomi_markw-4.9",
-      "branch": "master",
-      "device": "markw",
-      "defconfig": "markw_defconfig"
+      "name": "Xiaomi10S（Utsav）",
+      "repo": "https://github.com/UtsavBalar1231/kernel_xiaomi_sm8250",
+      "branch": "android13-stable",
+      "device": "thyme",
+      "defconfig": "thyme_defconfig"
     },
+    "enableCcache": true,
     "toolchains": [
       {
         "repo": "https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b",
@@ -33,14 +34,14 @@
         ]
       }
     ],
-    "enableCcache": true,
     "params": {
       "ARCH": "arm64",
-      "CC": "clang",
+      "CC": "clang/bin/clang",
       "externalCommands": {
+        "CROSS_COMPILE": "aarch64-linux-gnu-",
+        "CROSS_COMPILE_ARM32": "arm-linux-gnueabi-",
+        "CROSS_COMPILE_COMPAT": "arm-linux-gnueabi-",
         "CLANG_TRIPLE": "aarch64-linux-gnu-",
-        "CROSS_COMPILE": "aarch64-linux-android-",
-        "CROSS_COMPILE_ARM32": "arm-linux-androideabi-",
         "LD": "ld.lld",
         "AR": "llvm-ar",
         "NM": "llvm-nm",
@@ -51,8 +52,7 @@
         "STRIP": "llvm-strip",
         "LDGOLD": "aarch64-linux-gnu-ld.gold",
         "LLVM_AR": "llvm-ar",
-        "LLVM_DIS": "llvm-dis",
-        "CONFIG_THINLTO": ""
+        "LLVM_DIS": "llvm-dis"
       }
     },
     "AnyKernel3": {
@@ -60,6 +60,7 @@
       "release": true
     },
     "enableKernelSU": true,
-    "enableLXC": true
-  }
+    "enableLXC": false
+  },
+  {
 ]

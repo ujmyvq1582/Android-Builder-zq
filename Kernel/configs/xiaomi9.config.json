@@ -1,0 +1,35 @@
+[
+  {
+    "kernelSource": {
+      "name": "Xiaomi10KernelPoweredBySeparate",
+      "repo": "https://github.com/MiCode/Xiaomi_Kernel_OpenSource/tree/cas-q-oss",
+      "branch": "main",
+      "device": "umi",
+      "defconfig": "cepheus_defconfig"
+    },
+    "toolchains": [
+      {
+        "name": "proton-clang",
+        "repo": "https://github.com/kdrag0n/proton-clang",
+        "branch": "master",
+        "binaryEnv": ["./bin"]
+      }
+    ],
+    "enableCcache": true,
+    "params": {
+      "ARCH": "arm64",
+      "CC": "clang",
+      "externalCommands": {
+        "CROSS_COMPILE": "proton-clang/bin/aarch64-linux-gnu-",
+        "CROSS_COMPILE_ARM32": "proton-clang/bin/arm-linux-gnueabi-",
+        "CLANG_TRIPLE": "aarch64-linux-gnu-"
+      }
+    },
+    "AnyKernel3": {
+      "use": true,
+      "release": true
+    },
+    "enableKernelSU": true,
+    "enableLXC": true
+  }
+]
